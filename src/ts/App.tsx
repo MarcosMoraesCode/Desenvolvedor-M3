@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header/Header";
 import TopSection from "../components/TopSection/TopSection";
 import ColorFilterComponent from "../components/AsideFilters/ColorFilterComponent";
+import SizeFilterComponent from "../components/AsideFilters/SizeFilterComponent";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <section className="main-section">
           <aside>
             <ColorFilterComponent />
+            <SizeFilterComponent />
           </aside>
         </section>
       </main>

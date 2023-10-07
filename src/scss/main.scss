@@ -5,51 +5,20 @@
 @import "../components/AsideFilters/filters.scss";
 @import "../components/ProductCard/product.scss";
 @import "../components/Footer/footer.scss";
+@import "../components/Productsection/productsection.scss";
 
 body {
   font-family: $font-family-open-sans;
 }
 
 .main-style {
+  display: flex;
+  flex-direction: column;
   width: 1500px;
   margin: 0 auto 0 auto;
 }
 
 .main-section {
-  display: flex;
   margin: 50px 157px 0px 157px;
-}
-
-.products-section {
   display: flex;
-  flex-direction: column;
-}
-
-.products-container {
-  display: grid;
-  width: 976px;
-  align-items: center;
-  justify-content: center;
-  place-items: center;
-  grid-template-columns: 195.25px 195.25px 195.25px;
-  column-gap: 64px;
-  row-gap: 40px;
-  margin-left: 45px;
-}
-
-.load-btn-wrapper {
-  width: 100%;
-}
-
-.load-products-btn {
-  border: none;
-  margin: 73px 0 35px 40%;
-  color: $light-color;
-  background-color: $primary-color;
-  font-size: 87.5%;
-  width: 175px;
-  height: 31px;
-  &:hover {
-    cursor: pointer;
-  }
 }

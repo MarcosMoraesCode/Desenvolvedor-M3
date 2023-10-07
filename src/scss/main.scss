@@ -1,5 +1,6 @@
 @import "reset";
 @import "./variables";
+@import "../components//Header//header.scss";
 
 body {
   font-family: $font-family-open-sans;

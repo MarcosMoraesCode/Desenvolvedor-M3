@@ -1,7 +1,12 @@
 import React from "react";
+import Header from "../components/Header/Header";
 
 const App = () => {
-  return <React.Fragment>Desafio M3</React.Fragment>;
+  return (
+    <React.Fragment>
+      <Header />
+    </React.Fragment>
+  );
 };
 
 export default App;

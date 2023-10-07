@@ -60,3 +60,30 @@
     height: 32px;
   }
 }
+
+//PRICE COMPONENT
+.price-filter {
+  height: 156px;
+  h1 {
+    line-height: 22px;
+    color: $title-color;
+    margin-bottom: 10px;
+  }
+}
+.checkbox-prices {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 32px);
+  justify-content: space-around;
+
+  div {
+    display: flex;
+    align-items: center;
+    max-height: 16px;
+    font-size: 87.5%;
+    width: 100%;
+    label {
+      padding-left: 5px;
+    }
+  }
+}

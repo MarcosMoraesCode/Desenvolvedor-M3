@@ -3,6 +3,7 @@ import Header from "../components/Header/Header";
 import TopSection from "../components/TopSection/TopSection";
 import ColorFilterComponent from "../components/AsideFilters/ColorFilterComponent";
 import SizeFilterComponent from "../components/AsideFilters/SizeFilterComponent";
+import PriceFilterComponent from "../components/AsideFilters/PriceFilterComponent";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <aside>
             <ColorFilterComponent />
             <SizeFilterComponent />
+            <PriceFilterComponent />
           </aside>
         </section>
       </main>

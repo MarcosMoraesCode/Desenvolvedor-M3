@@ -1,0 +1,37 @@
+//ASIDE COMPONENT
+.aside-filters-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 157px;
+  height: 648px;
+}
+
+//COLOR COMPONENT
+.color-filter {
+  padding-left: 3px;
+  height: 286px;
+  h1 {
+    line-height: 22px;
+    color: $title-color;
+    margin-bottom: 10px;
+  }
+}
+.checkbox-colors {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: space-around;
+  align-items: center;
+
+  div {
+    display: flex;
+    align-items: center;
+    height: 16px;
+    font-size: 87.5%;
+    width: 100%;
+    label {
+      padding-left: 5px;
+    }
+  }
+}

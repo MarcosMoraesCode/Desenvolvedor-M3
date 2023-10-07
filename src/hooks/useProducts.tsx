@@ -6,15 +6,20 @@ import React, {
   useState,
 } from "react";
 import { Product } from "../ts/Product";
+import { organizeProducts } from "../utils/OptionFilters";
 
 const ProductContext = createContext({} as ProductContextProps);
 
+export type OptionFilter = "expensive" | "cheaper" | "recent" | "none";
+
 type ProductContextProps = {
   products: Product[];
-  updateProducts: (productsList: Product[]) => void;
+  updateProducts: (option: OptionFilter) => void;
   loading: boolean;
   isLoading: (loading: boolean) => void;
   searchProducts: () => void;
+  optionFilter: OptionFilter;
+  updateOptionFilter: (option: OptionFilter) => void;
 };
 
 type ProductProviderProps = {
@@ -25,9 +30,11 @@ export function ProductProvider({ children }: ProductProviderProps) {
   //eu crio o estado tipado com o tipo do dado que será consumido
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
+  const [optionFilter, setOptionFilter] = useState<OptionFilter>("none");
   //eu crio a função padrão que será utilizada pelos consumers que internamente atualiza meu estado;
-  const updateProducts = (value: Product[]) => {
-    setProducts(value);
+
+  const updateProducts = (option: OptionFilter) => {
+    setProducts(organizeProducts(option, products) as Product[]);
   };
 
   const isLoading = (value: boolean) => {
@@ -50,6 +57,11 @@ export function ProductProvider({ children }: ProductProviderProps) {
       });
   };
 
+  const updateOptionFilter = (option: OptionFilter) => {
+    setOptionFilter(option);
+    updateProducts(option);
+  };
+
   useEffect(() => {
     try {
       searchProducts();
@@ -67,6 +79,8 @@ export function ProductProvider({ children }: ProductProviderProps) {
         loading: loading,
         isLoading: isLoading,
         searchProducts: searchProducts,
+        optionFilter: optionFilter,
+        updateOptionFilter: updateOptionFilter,
       }}
     >
       {children}

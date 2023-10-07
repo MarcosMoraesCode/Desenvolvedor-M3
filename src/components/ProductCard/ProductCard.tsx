@@ -11,8 +11,6 @@ const ProductCard = ({
   price,
   size,
 }: Product) => {
-  console.log("aqui", color, date, id, size);
-
   const productName = name.toUpperCase();
 
   const productPrice = new Intl.NumberFormat("pt-BR", {

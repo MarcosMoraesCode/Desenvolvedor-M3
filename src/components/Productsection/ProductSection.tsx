@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import { useProducts } from "../../hooks/useProducts";
-import { Product } from "../../ts/Product";
 
 const ProductSection = () => {
   const { products } = useProducts();
+  const [organizedProducts, setOrganizedProducts] = useState();
 
   let fetchedProducts;
 
   if (products.length > 0) {
-    console.log(products);
     fetchedProducts = products.map((product, id) => {
       return (
         <ProductCard
@@ -26,6 +25,8 @@ const ProductSection = () => {
       );
     });
   }
+
+  // filtro do select será o último filtro
 
   return (
     <section className="products-section">

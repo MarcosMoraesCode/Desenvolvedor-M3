@@ -1,0 +1,17 @@
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    margin: 40px 0px 0px 162px;
+    color: $title-color;
+    width: 97px;
+    height: 44px;
+    font-size: 200%;
+  }
+  select {
+    margin: 53px 162px 0px 0px;
+    width: 142px;
+    height: 42px;
+    line-height: 22px;
+  }
+}

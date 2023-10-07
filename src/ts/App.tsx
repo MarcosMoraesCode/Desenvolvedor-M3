@@ -5,6 +5,7 @@ import ColorFilterComponent from "../components/AsideFilters/ColorFilterComponen
 import SizeFilterComponent from "../components/AsideFilters/SizeFilterComponent";
 import PriceFilterComponent from "../components/AsideFilters/PriceFilterComponent";
 import ProductCard from "../components/ProductCard/ProductCard";
+import Footer from "../components/Footer/Footer";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
           </section>
         </section>
       </main>
+      <Footer />
     </React.Fragment>
   );
 };

@@ -1,0 +1,11 @@
+.footer-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 33px;
+  background-color: $dark-color;
+  span {
+    font-size: 87.5%;
+    color: $light-color;
+  }
+}

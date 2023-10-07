@@ -2,8 +2,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import { ProductProvider } from "../hooks/useProducts";
 
-const serverUrl = "http://localhost:5000";
+export const serverUrl = "http://localhost:5000";
 
 function main() {
   console.log(serverUrl);
@@ -17,6 +18,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
+    <ProductProvider>
+      <App />
+    </ProductProvider>
   </React.StrictMode>
 );

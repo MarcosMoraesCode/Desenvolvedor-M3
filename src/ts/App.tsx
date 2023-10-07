@@ -6,6 +6,7 @@ import SizeFilterComponent from "../components/AsideFilters/SizeFilterComponent"
 import PriceFilterComponent from "../components/AsideFilters/PriceFilterComponent";
 import ProductCard from "../components/ProductCard/ProductCard";
 import Footer from "../components/Footer/Footer";
+import { useProducts } from "../hooks/useProducts";
 
 const App = () => {
   return (

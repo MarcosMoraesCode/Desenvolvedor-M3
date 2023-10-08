@@ -14,11 +14,11 @@ export type OptionFilter = "expensive" | "cheaper" | "recent" | "none";
 
 type ProductContextProps = {
   products: Product[];
-  updateProducts: (option: OptionFilter) => void;
   loading: boolean;
+  optionFilter: OptionFilter;
+  updateProducts: (option: OptionFilter) => void;
   isLoading: (loading: boolean) => void;
   searchProducts: () => void;
-  optionFilter: OptionFilter;
   updateOptionFilter: (option: OptionFilter) => void;
 };
 

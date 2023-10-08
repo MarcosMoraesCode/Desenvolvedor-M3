@@ -14,4 +14,7 @@
     height: 42px;
     line-height: 22px;
   }
+  select:focus option[value="none"] {
+    display: none;
+  }
 }

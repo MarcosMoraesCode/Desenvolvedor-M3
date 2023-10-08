@@ -16,7 +16,7 @@ const TopSection = () => {
           selectHandler(e.currentTarget.value as OptionFilter);
         }}
       >
-        <option disabled hidden value="none">
+        <option disabled selected value="none">
           Ordernar por:
         </option>
         <option value="recent">Mais recentes</option>

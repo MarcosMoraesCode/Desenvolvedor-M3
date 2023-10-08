@@ -4,8 +4,13 @@ import TopSection from "../components/TopSection/TopSection";
 import Footer from "../components/Footer/Footer";
 import ProductSection from "../components/Productsection/ProductSection";
 import AsideFilters from "../components/AsideFilters/AsideFilters";
+import { useProducts } from "../hooks/useProducts";
+import { filterByColors, updateColors } from "../utils/OptionFilters";
 
 const App = () => {
+  const { products } = useProducts();
+  console.log(products);
+
   return (
     <React.Fragment>
       <Header />

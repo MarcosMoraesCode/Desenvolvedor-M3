@@ -6,20 +6,27 @@ import React, {
   useState,
 } from "react";
 import { Product } from "../ts/Product";
-import { organizeProducts } from "../utils/OptionFilters";
+import {
+  filterByColors,
+  organizeProducts,
+  updateColors,
+} from "../utils/OptionFilters";
 
 const ProductContext = createContext({} as ProductContextProps);
 
 export type OptionFilter = "expensive" | "cheaper" | "recent" | "none";
 
 type ProductContextProps = {
+  allProducts: Product[];
   products: Product[];
   loading: boolean;
   optionFilter: OptionFilter;
-  updateProducts: (option: OptionFilter) => void;
+  updateProducts: (option: OptionFilter, colors: string[]) => void;
   isLoading: (loading: boolean) => void;
   searchProducts: () => void;
   updateOptionFilter: (option: OptionFilter) => void;
+  selectedColors: string[];
+  updateSelectedColors: (colors: string[]) => void;
 };
 
 type ProductProviderProps = {
@@ -28,13 +35,23 @@ type ProductProviderProps = {
 
 export function ProductProvider({ children }: ProductProviderProps) {
   //eu crio o estado tipado com o tipo do dado que será consumido
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [optionFilter, setOptionFilter] = useState<OptionFilter>("none");
   //eu crio a função padrão que será utilizada pelos consumers que internamente atualiza meu estado;
 
-  const updateProducts = (option: OptionFilter) => {
-    setProducts(organizeProducts(option, products) as Product[]);
+  const updateProducts = (option: OptionFilter, colors: string[]) => {
+    let filteredProducts: Product[] = [];
+
+    if (colors.length > 0) {
+      filteredProducts = filterByColors(colors, allProducts);
+      console.log(filteredProducts, "produtos filtrados");
+      setProducts(organizeProducts(option, filteredProducts) as Product[]);
+    } else {
+      setProducts(organizeProducts(option, allProducts) as Product[]);
+    }
   };
 
   const isLoading = (value: boolean) => {
@@ -52,14 +69,19 @@ export function ProductProvider({ children }: ProductProviderProps) {
         return res.json();
       })
       .then((data) => {
+        setAllProducts(data);
         setProducts(data);
         setLoading(false);
       });
   };
 
+  const updateSelectedColors = (colors: string[]) => {
+    setSelectedColors(colors);
+  };
+
   const updateOptionFilter = (option: OptionFilter) => {
     setOptionFilter(option);
-    updateProducts(option);
+    updateProducts(option, selectedColors);
   };
 
   useEffect(() => {
@@ -74,6 +96,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
   return (
     <ProductContext.Provider
       value={{
+        allProducts: allProducts,
         products: products,
         updateProducts: updateProducts,
         loading: loading,
@@ -81,6 +104,8 @@ export function ProductProvider({ children }: ProductProviderProps) {
         searchProducts: searchProducts,
         optionFilter: optionFilter,
         updateOptionFilter: updateOptionFilter,
+        selectedColors: selectedColors,
+        updateSelectedColors: updateSelectedColors,
       }}
     >
       {children}

@@ -3,7 +3,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import { useProducts } from "../../hooks/useProducts";
 
 const ProductSection = () => {
-  const { products } = useProducts();
+  const { products, selectedColors } = useProducts();
   const [productsShown, setProductShown] = useState(9); //9);
 
   const onClickHandler = () => {
@@ -13,6 +13,9 @@ const ProductSection = () => {
   let fetchedProducts;
 
   if (products.length > 0) {
+    // if (selectedColors.length > 0) {
+    // }
+
     fetchedProducts = products
       .map((product, id) => {
         return (
@@ -29,7 +32,7 @@ const ProductSection = () => {
           />
         );
       })
-      .filter((product, id) => id < productsShown);
+      .filter((_, id) => id < productsShown);
   }
 
   // filtro do select será o último filtro

@@ -34,6 +34,50 @@ export const organizeProducts = (option: OptionFilter, products: Product[]) => {
       );
       console.log("organizados por mais recente", organizedProducts);
       break;
+    case "none":
+      organizedProducts = products;
+      break;
+    default:
+      break;
   }
   return organizedProducts;
+};
+
+export const filterByColors = (
+  colors: string[],
+  products: Product[]
+): Product[] => {
+  const filteredProducts: Product[] = [];
+
+  products.forEach((product) => {
+    colors.forEach((color) => {
+      if (color === product.color) {
+        filteredProducts.push(product);
+      }
+    });
+  });
+
+  return filteredProducts;
+};
+
+export const updateColors = (color: string, colors: string[]) => {
+  let newColors: string[] = [];
+  let colorExists = false;
+
+  colors.forEach((arrColor) => {
+    if (arrColor === color) {
+      colorExists = true;
+      newColors = colors.filter((arrColor) => arrColor !== color);
+    }
+  });
+
+  if (colorExists) {
+    // console.log("retornando as cores, menos a " + color, newColors);
+    return newColors;
+  } else {
+    colors.push(color);
+
+    // console.log("retornando as cores, mais a " + color, colors);
+    return colors;
+  }
 };

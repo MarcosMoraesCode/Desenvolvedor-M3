@@ -1,0 +1,25 @@
+.price-filter {
+  height: 156px;
+  h1 {
+    line-height: 22px;
+    color: $title-color;
+    margin-bottom: 14px;
+  }
+}
+.checkbox-prices {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.price-input-options {
+  display: flex;
+  align-items: center;
+  font-size: 87.5%;
+  width: 100%;
+  margin: 5px 0 5px 0;
+
+  label {
+    padding-left: 5px;
+  }
+}

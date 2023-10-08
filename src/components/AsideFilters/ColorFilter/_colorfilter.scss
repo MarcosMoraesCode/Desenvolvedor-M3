@@ -1,0 +1,28 @@
+.color-filter {
+  padding-left: 3px;
+  margin-bottom: 24px;
+  h1 {
+    line-height: 22px;
+    color: $title-color;
+    margin-bottom: 10px;
+  }
+}
+.checkbox-colors {
+  display: flex;
+  flex-direction: column;
+  //height: 250px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.color-input-options {
+  display: flex;
+  align-items: center;
+  height: 16px;
+  font-size: 87.5%;
+  width: 100%;
+  margin: 5px 0 5px 0;
+  label {
+    padding-left: 5px;
+  }
+}

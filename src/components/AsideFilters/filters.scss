@@ -1,3 +1,7 @@
+@import "./ColorFilter/_colorfilter.scss";
+@import "./PriceFilter/_pricefilter.scss";
+@import "./SizeFilter/_sizefilter.scss";
+
 //ASIDE COMPONENT
 .aside-filters-component {
   display: flex;
@@ -7,91 +11,6 @@
   height: 648px;
 }
 
-//COLOR COMPONENT
-.color-filter {
-  padding-left: 3px;
-  margin-bottom: 24px;
-  h1 {
-    line-height: 22px;
-    color: $title-color;
-    margin-bottom: 10px;
-  }
-}
-.checkbox-colors {
-  display: flex;
-  flex-direction: column;
-  //height: 250px;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.color-input-options {
-  display: flex;
-  align-items: center;
-  height: 16px;
-  font-size: 87.5%;
-  width: 100%;
-  margin: 5px 0 5px 0;
-  // input:disabled {
-  //   max-width: 10px;
-  //   max-height: 10px;
-  //   border: 1px solid $grey-100;
-  //   background-color: $primary;
-  //   border-radius: 0;
-  // }
-  label {
-    padding-left: 5px;
-  }
-}
-
 //SIZE COMPONENT
-.size-filter {
-  margin-bottom: 24px;
-  h1 {
-    line-height: 22px;
-    color: $title-color;
-    margin-bottom: 24px;
-  }
-}
-.size-selection-container {
-  width: 153px;
-  display: grid;
-  grid-template-columns: 32px 32px 32px 32px;
-  grid-gap: 8px;
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $grey-100;
-    border: 1px solid $grey-100;
-    width: 32px;
-    height: 32px;
-  }
-}
 
 //PRICE COMPONENT
-.price-filter {
-  height: 156px;
-  h1 {
-    line-height: 22px;
-    color: $title-color;
-    margin-bottom: 14px;
-  }
-}
-.checkbox-prices {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.price-input-options {
-  display: flex;
-  align-items: center;
-  font-size: 87.5%;
-  width: 100%;
-  margin: 5px 0 5px 0;
-
-  label {
-    padding-left: 5px;
-  }
-}

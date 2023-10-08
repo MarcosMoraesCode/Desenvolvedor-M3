@@ -1,7 +1,7 @@
 import React from "react";
-import ColorFilterComponent from "./ColorFilterComponent";
-import SizeFilterComponent from "./SizeFilterComponent";
-import PriceFilterComponent from "./PriceFilterComponent";
+import ColorFilterComponent from "./ColorFilter/ColorFilterComponent";
+import SizeFilterComponent from "./SizeFilter/SizeFilterComponent";
+import PriceFilterComponent from "./PriceFilter/PriceFilterComponent";
 
 const AsideFilters = () => {
   return (

@@ -1,0 +1,37 @@
+.size-filter {
+  margin-bottom: 24px;
+  h1 {
+    line-height: 22px;
+    color: $title-color;
+    margin-bottom: 24px;
+  }
+}
+.size-selection-container {
+  width: 153px;
+  display: grid;
+  grid-template-columns: 32px 32px 32px 32px;
+  grid-gap: 8px;
+}
+
+.size-option {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $grey-100;
+  border: 1px solid $grey-100;
+  width: 32px;
+  height: 32px;
+}
+
+.size-option-checked {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $dark-color;
+  border: 1px solid $primary-color;
+  font-weight: 400;
+  width: 32px;
+  height: 32px;
+}

@@ -22,3 +22,18 @@ body {
   margin: 50px 157px 0px 157px;
   display: flex;
 }
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid $grey-100;
+  padding: 2px;
+  background-clip: content-box;
+}
+
+input[type="checkbox"]:checked {
+  background-color: $primary-color;
+}

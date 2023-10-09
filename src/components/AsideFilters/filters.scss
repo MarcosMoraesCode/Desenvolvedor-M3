@@ -8,7 +8,15 @@
   flex-direction: column;
   height: fit-content;
   padding-left: 3px;
-  width: 157px;
+  max-width: 157px;
+  min-width: 157px;
+
+  @include responsive(tablet) {
+    display: none;
+  }
+  @include responsive(mobile) {
+    display: none;
+  }
 }
 
 //SIZE COMPONENT

@@ -6,7 +6,7 @@
 @import "../components/ProductCard/product.scss";
 @import "../components/Footer/footer.scss";
 @import "../components/Productsection/productsection.scss";
-
+@import "./mixins";
 body {
   font-family: $font-family-open-sans;
 }
@@ -15,13 +15,25 @@ body {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 60px);
-  width: 1500px;
-  margin: 0 auto 0 auto;
+  margin: 0 162px 0 165px;
+
+  @include responsive(desktop) {
+    margin: 0 92px 0 95px;
+  }
+  @include responsive(tablet) {
+    margin: 0 37px 0 39px;
+  }
+  @include responsive(mobile) {
+    margin: 0 17px 0 17px;
+  }
 }
 
 .main-section {
-  margin: 50px 157px 0px 157px;
   display: flex;
+
+  width: 100%;
+
+  margin: 50px auto 0px auto;
 }
 
 input[type="checkbox"] {

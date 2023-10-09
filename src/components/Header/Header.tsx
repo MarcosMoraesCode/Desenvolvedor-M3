@@ -14,11 +14,13 @@ const Header = () => {
 
   return (
     <header className="header-style">
+      {/* <div className="header-container"> */}
       <img src="img/logo-m3.png" alt="Logo M3" className="logo-style" />
       <div className="icon-style">
         <img src="img/cart-icon.png" alt="Cart Icon" />
         {cartInformation}
       </div>
+      {/* </div> */}
     </header>
   );
 };

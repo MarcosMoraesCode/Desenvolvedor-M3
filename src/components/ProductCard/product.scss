@@ -19,6 +19,15 @@
     height: 33px;
     background-color: $dark-200;
   }
+
+  @include responsive(mobile) {
+    img {
+      width: 162px;
+      height: 242.55px;
+    }
+    width: 162px;
+    height: 357.14px;
+  }
 }
 
 .product-info {

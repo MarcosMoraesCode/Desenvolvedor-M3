@@ -6,9 +6,9 @@
 .aside-filters-component {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: fit-content;
+  padding-left: 3px;
   width: 157px;
-  height: 648px;
 }
 
 //SIZE COMPONENT

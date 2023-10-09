@@ -5,7 +5,7 @@ import PriceFilterComponent from "./PriceFilter/PriceFilterComponent";
 
 const AsideFilters = () => {
   return (
-    <aside>
+    <aside className="aside-filters-component">
       <ColorFilterComponent />
       <SizeFilterComponent />
       <PriceFilterComponent />

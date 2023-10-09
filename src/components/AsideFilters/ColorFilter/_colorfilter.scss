@@ -1,7 +1,7 @@
 .color-filter {
-  padding-left: 3px;
   margin-bottom: 24px;
   h1 {
+    padding-left: 3px;
     line-height: 22px;
     color: $title-color;
     margin-bottom: 10px;
@@ -12,7 +12,6 @@
   flex-direction: column;
   //height: 250px;
   justify-content: space-around;
-  align-items: center;
 }
 
 .color-input-options {
@@ -21,8 +20,27 @@
   height: 16px;
   font-size: 87.5%;
   width: 100%;
-  margin: 5px 0 5px 0;
+  margin: 4px 0 4px 0;
+  padding-left: 0;
   label {
     padding-left: 5px;
   }
+}
+
+.show-colors-btn {
+  border: none;
+  background-color: transparent;
+  color: $grey-200;
+  line-height: 12px;
+  font-size: 75%;
+  text-decoration: underline;
+  padding-top: 1px;
+
+  span {
+    margin-left: 2px;
+  }
+}
+
+.hide-colors-btn {
+  display: none;
 }

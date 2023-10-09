@@ -1,6 +1,7 @@
 .size-filter {
   margin-bottom: 24px;
   h1 {
+    padding-left: 3px;
     line-height: 22px;
     color: $title-color;
     margin-bottom: 24px;
@@ -9,6 +10,7 @@
 .size-selection-container {
   width: 153px;
   display: grid;
+  margin-left: 3px;
   grid-template-columns: 32px 32px 32px 32px;
   grid-gap: 8px;
 }

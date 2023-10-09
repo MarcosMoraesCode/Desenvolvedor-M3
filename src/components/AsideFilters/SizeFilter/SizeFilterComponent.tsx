@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import SizeOption from "./SizeOption";
+import { Sizes, useProducts } from "../../../hooks/useProducts";
+import { filterBySize } from "../../../utils/OptionFilters";
 
 const SizeFilterComponent = () => {
+  const {
+    updateSelectedSize,
+    products,
+    updateProducts,
+    optionFilter,
+    selectedColors,
+  } = useProducts();
+
   const [checked, setChecked] = useState(-1);
 
   const sizeFilters = [
@@ -18,6 +28,18 @@ const SizeFilterComponent = () => {
     "40",
   ];
 
+  const onClickHandler = (id: number, size: Sizes) => {
+    if (checked !== id) {
+      setChecked(id);
+      updateSelectedSize(size);
+      updateProducts(optionFilter, selectedColors, size);
+    } else {
+      setChecked(-1);
+      updateSelectedSize("none");
+      updateProducts(optionFilter, selectedColors, "none");
+    }
+  };
+
   return (
     <div className="size-filter">
       <h1>TAMANHOS</h1>
@@ -26,8 +48,8 @@ const SizeFilterComponent = () => {
           return (
             <SizeOption
               key={`size-${id}`}
-              size={sizeFilter}
-              setChecked={() => setChecked(id)}
+              size={sizeFilter as Sizes}
+              setChecked={() => onClickHandler(id, sizeFilter as Sizes)}
               isChecked={id === checked}
             />
           );

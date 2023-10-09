@@ -1,7 +1,8 @@
 import React from "react";
+import { Sizes } from "../../../hooks/useProducts";
 
 interface SizeOptionProps {
-  size: string;
+  size: Sizes;
   isChecked: boolean;
   setChecked: () => void;
 }

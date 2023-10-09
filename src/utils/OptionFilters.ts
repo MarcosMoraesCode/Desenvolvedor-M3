@@ -1,4 +1,4 @@
-import { OptionFilter } from "../hooks/useProducts";
+import { OptionFilter, Sizes } from "../hooks/useProducts";
 import { Product } from "../ts/Product";
 
 export const convertStringDateToNumber = (stringDate: string): number => {
@@ -21,18 +21,18 @@ export const organizeProducts = (option: OptionFilter, products: Product[]) => {
   switch (option) {
     case "cheaper":
       organizedProducts = products.sort((a, b) => a.price - b.price);
-      console.log("organizados por mais barato", organizedProducts);
+      // console.log("organizados por mais barato", organizedProducts);
       break;
     case "expensive":
       organizedProducts = products.sort((a, b) => b.price - a.price);
-      console.log("organizados por mais caro", organizedProducts);
+      // console.log("organizados por mais caro", organizedProducts);
       break;
     case "recent":
       organizedProducts = products.sort(
         (a, b) =>
           convertStringDateToNumber(a.date) - convertStringDateToNumber(b.date)
       );
-      console.log("organizados por mais recente", organizedProducts);
+      // console.log("organizados por mais recente", organizedProducts);
       break;
     case "none":
       organizedProducts = products;
@@ -80,4 +80,22 @@ export const updateColors = (color: string, colors: string[]) => {
     // console.log("retornando as cores, mais a " + color, colors);
     return colors;
   }
+};
+
+export const filterBySize = (size: Sizes, products: Product[]) => {
+  // console.log("filtrando" + size + "em " + products.length);
+
+  if (size === "none") {
+    return products;
+  } else {
+    const filteredProducts = products.filter((product) => {
+      if (product.size.includes(size)) {
+        return product;
+      }
+    });
+
+    return filteredProducts;
+  }
+
+  // console.log(filteredProducts);
 };

@@ -4,18 +4,16 @@ import { useProducts } from "../../hooks/useProducts";
 
 const ProductSection = () => {
   const { products, selectedColors } = useProducts();
-  const [productsShown, setProductShown] = useState(9); //9);
+  const [productsShown, setProductShown] = useState(9); //Define a quantidade de produtos mostrados inicialmente
 
   const onClickHandler = () => {
+    //Define quantos produtos a mais serão mostrados ao clicar no botão
     setProductShown(productsShown + 4);
   };
 
   let fetchedProducts;
 
   if (products.length > 0) {
-    // if (selectedColors.length > 0) {
-    // }
-
     fetchedProducts = products
       .map((product, id) => {
         return (

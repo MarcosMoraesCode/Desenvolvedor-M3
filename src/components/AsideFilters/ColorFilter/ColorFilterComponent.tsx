@@ -4,15 +4,18 @@ import { updateColors } from "../../../utils/OptionFilters";
 import { useProducts } from "../../../hooks/useProducts";
 
 const ColorFilterComponent = () => {
-  const { selectedColors, updateSelectedColors, updateProducts, optionFilter } =
-    useProducts();
+  const {
+    selectedColors,
+    updateSelectedColors,
+    updateProducts,
+    optionFilter,
+    selectedSize,
+  } = useProducts();
 
   const onSelectionHandler = (color: string) => {
     const newColors = updateColors(color, selectedColors);
     updateSelectedColors(newColors);
-    console.log("clicou");
-    console.log("atualizado", newColors, "estado", selectedColors);
-    updateProducts(optionFilter, newColors);
+    updateProducts(optionFilter, newColors, selectedSize);
   };
 
   const colors = [

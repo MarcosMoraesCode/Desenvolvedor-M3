@@ -19,3 +19,59 @@
     display: none;
   }
 }
+
+//CustoDropdown
+
+.dropdown-container {
+  margin: 53px 182px 0px 0px;
+  position: relative;
+
+  .default-button {
+    &:hover {
+      cursor: pointer;
+    }
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid $dark-100;
+    width: 142px;
+    height: 42px;
+    line-height: 22px;
+    background-color: $light-color;
+    font-size: 100%;
+    font-weight: 400;
+    color: $dark-200;
+    padding-left: 10px;
+
+    span {
+      margin-left: 10px;
+    }
+  }
+}
+
+.custom-dropdown {
+  position: absolute;
+  z-index: 10;
+  width: 140px;
+  height: 107px;
+  height: fit-content;
+  border: 1px solid $dark-100;
+}
+
+.organize-options-btn {
+  border: none;
+  background-color: $light-color;
+  padding-left: 9px;
+  width: 140px;
+  height: 36px;
+  line-height: 22px;
+  font-size: 100%;
+  font-weight: 400;
+  text-align: left;
+
+  &:hover {
+    cursor: pointer;
+    color: $light-color;
+    background-color: $primary-color;
+  }
+}

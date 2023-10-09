@@ -1,5 +1,6 @@
 import React from "react";
 import { Product } from "../../ts/Product";
+import { useProducts } from "../../hooks/useProducts";
 
 const ProductCard = ({
   color,
@@ -11,6 +12,8 @@ const ProductCard = ({
   price,
   size,
 }: Product) => {
+  const { updateCartProducts, cartProducts } = useProducts();
+
   const productName = name.toUpperCase();
 
   const productPrice = new Intl.NumberFormat("pt-BR", {
@@ -23,6 +26,30 @@ const ProductCard = ({
     currency: "BRL",
   }).format(parcelamento[1]);
 
+  const onClickHandler = ({
+    color,
+    date,
+    id,
+    image,
+    name,
+    parcelamento,
+    price,
+    size,
+  }: Product) => {
+    const newProduct = {
+      color,
+      date,
+      id,
+      image,
+      name,
+      parcelamento,
+      price,
+      size,
+    };
+
+    updateCartProducts(newProduct);
+  };
+
   return (
     <div className="product-card">
       <img src={image} />
@@ -33,7 +60,22 @@ const ProductCard = ({
           até {parcelamento[0]}x de {productInstallments}
         </span>
       </div>
-      <button onClick={() => {}}>COMPRAR</button>
+      <button
+        onClick={() =>
+          onClickHandler({
+            color,
+            date,
+            id,
+            image,
+            name,
+            parcelamento,
+            price,
+            size,
+          })
+        }
+      >
+        COMPRAR
+      </button>
     </div>
   );
 };

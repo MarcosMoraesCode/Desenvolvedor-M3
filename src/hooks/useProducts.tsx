@@ -21,6 +21,7 @@ const ProductContext = createContext({} as ProductContextProps);
 type ProductContextProps = {
   allProducts: Product[];
   products: Product[];
+  cartProducts: Product[];
   optionFilter: OptionFilter;
   selectedColors: string[];
   selectedSize: Sizes;
@@ -36,6 +37,7 @@ type ProductContextProps = {
   updateSelectedColors: (colors: string[]) => void;
   updateSelectedSize: (size: Sizes) => void;
   updateSelectedPrice: (price: Prices) => void;
+  updateCartProducts: (product: Product) => void;
 };
 
 type ProductProviderProps = {
@@ -46,6 +48,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
   //eu crio o estado tipado com o tipo do dado que será consumido
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [cartProducts, setCartProducts] = useState<Product[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [optionFilter, setOptionFilter] = useState<OptionFilter>("none");
   const [selectedSize, setSelectedSize] = useState<Sizes>("none");
@@ -81,27 +84,27 @@ export function ProductProvider({ children }: ProductProviderProps) {
       sizeFilteredProducts = filterBySize(size, colorFilteredProducts);
       priceFilteredProducts = filterByPrice(price, sizeFilteredProducts);
 
-      console.log(
-        colorFilteredProducts,
-        "produtos filtrados",
-        "filtros: cor ",
-        colors,
-        "tamanho",
-        size,
-        "preço",
-        price
-      );
+      // console.log(
+      //   colorFilteredProducts,
+      //   "produtos filtrados",
+      //   "filtros: cor ",
+      //   colors,
+      //   "tamanho",
+      //   size,
+      //   "preço",
+      //   price
+      // );
       setProducts(organizeProducts(option, priceFilteredProducts) as Product[]);
     } else {
       sizeFilteredProducts = filterBySize(size, allProducts);
       priceFilteredProducts = filterByPrice(price, sizeFilteredProducts);
-      console.log(
-        sizeFilteredProducts,
-        "produtos filtrados, filtros: tamanho",
-        size,
-        " preço ",
-        price
-      );
+      // console.log(
+      //   sizeFilteredProducts,
+      //   "produtos filtrados, filtros: tamanho",
+      //   size,
+      //   " preço ",
+      //   price
+      // );
       setProducts(organizeProducts(option, priceFilteredProducts) as Product[]);
     }
   };
@@ -123,6 +126,14 @@ export function ProductProvider({ children }: ProductProviderProps) {
     setSelectedPrice(price);
   };
 
+  const updateCartProducts = (product: Product) => {
+    const newProducts = [...cartProducts];
+
+    newProducts.push(product);
+
+    setCartProducts(newProducts);
+  };
+
   useEffect(() => {
     try {
       searchProducts();
@@ -141,12 +152,14 @@ export function ProductProvider({ children }: ProductProviderProps) {
         selectedColors: selectedColors,
         selectedSize: selectedSize,
         selectedPrice: selectedPrice,
+        cartProducts: cartProducts,
         updateSelectedSize: updateSelectedSize,
         searchProducts: searchProducts,
         updateOptionFilter: updateOptionFilter,
         updateProducts: updateProducts,
         updateSelectedColors: updateSelectedColors,
         updateSelectedPrice: updateSelectedPrice,
+        updateCartProducts: updateCartProducts,
       }}
     >
       {children}

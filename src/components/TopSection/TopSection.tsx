@@ -12,6 +12,7 @@ const TopSection = () => {
   return (
     <section className="top-section">
       <h1>Blusas</h1>
+
       <select
         onChange={(e) => {
           selectHandler(e.currentTarget.value as OptionFilter);

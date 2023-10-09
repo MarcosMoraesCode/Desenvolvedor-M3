@@ -6,6 +6,7 @@ import { useProducts } from "../../../hooks/useProducts";
 const ColorFilterComponent = () => {
   const {
     selectedColors,
+    selectedPrice,
     updateSelectedColors,
     updateProducts,
     optionFilter,
@@ -15,7 +16,7 @@ const ColorFilterComponent = () => {
   const onSelectionHandler = (color: string) => {
     const newColors = updateColors(color, selectedColors);
     updateSelectedColors(newColors);
-    updateProducts(optionFilter, newColors, selectedSize);
+    updateProducts(optionFilter, newColors, selectedSize, selectedPrice);
   };
 
   const colors = [

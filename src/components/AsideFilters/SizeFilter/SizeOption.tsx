@@ -1,5 +1,5 @@
 import React from "react";
-import { Sizes } from "../../../hooks/useProducts";
+import { Sizes } from "../../../ts/Sizes";
 
 interface SizeOptionProps {
   size: Sizes;

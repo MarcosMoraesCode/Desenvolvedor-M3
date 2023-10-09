@@ -39,7 +39,7 @@ const ProductSection = () => {
     <section className="products-section">
       <div className="products-container">{fetchedProducts}</div>
       <div className="load-btn-wrapper">
-        {productsShown > products.length ? (
+        {productsShown >= products.length ? (
           <span className="span-limit">Todos os produtos foram exibidos.</span>
         ) : (
           <button

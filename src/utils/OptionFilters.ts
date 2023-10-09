@@ -1,5 +1,7 @@
-import { OptionFilter, Sizes } from "../hooks/useProducts";
+import { OptionFilter } from "../ts/OptionFilter";
+import { Prices } from "../ts/Prices";
 import { Product } from "../ts/Product";
+import { Sizes } from "../ts/Sizes";
 
 export const convertStringDateToNumber = (stringDate: string): number => {
   const date = new Date(stringDate);
@@ -72,19 +74,15 @@ export const updateColors = (color: string, colors: string[]) => {
   });
 
   if (colorExists) {
-    // console.log("retornando as cores, menos a " + color, newColors);
     return newColors;
   } else {
     colors.push(color);
 
-    // console.log("retornando as cores, mais a " + color, colors);
     return colors;
   }
 };
 
 export const filterBySize = (size: Sizes, products: Product[]) => {
-  // console.log("filtrando" + size + "em " + products.length);
-
   if (size === "none") {
     return products;
   } else {
@@ -96,6 +94,19 @@ export const filterBySize = (size: Sizes, products: Product[]) => {
 
     return filteredProducts;
   }
+};
 
-  // console.log(filteredProducts);
+export const filterByPrice = (price: Prices, products: Product[]) => {
+  if (price === "none") {
+    return products;
+  } else {
+    const filteredProducts = products.filter((product) => {
+      if (product.price > price[0] && product.price <= price[1]) {
+        console.log(product.price, typeof product.price, price, typeof price);
+        return product;
+      }
+    });
+    console.log("filtrado na função de preço", filteredProducts);
+    return filteredProducts;
+  }
 };

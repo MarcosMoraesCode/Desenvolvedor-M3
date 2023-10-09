@@ -8,27 +8,15 @@ import React, {
 import { Product } from "../ts/Product";
 import {
   filterByColors,
+  filterByPrice,
   filterBySize,
   organizeProducts,
-  updateColors,
 } from "../utils/OptionFilters";
+import { Sizes } from "../ts/Sizes";
+import { OptionFilter } from "../ts/OptionFilter";
+import { Prices } from "../ts/Prices";
 
 const ProductContext = createContext({} as ProductContextProps);
-
-export type OptionFilter = "expensive" | "cheaper" | "recent" | "none";
-export type Sizes =
-  | "none"
-  | "P"
-  | "M"
-  | "G"
-  | "GG"
-  | "U"
-  | "36"
-  | "38"
-  | "40"
-  | "36"
-  | "38"
-  | "40";
 
 type ProductContextProps = {
   allProducts: Product[];
@@ -36,11 +24,18 @@ type ProductContextProps = {
   optionFilter: OptionFilter;
   selectedColors: string[];
   selectedSize: Sizes;
-  updateProducts: (option: OptionFilter, colors: string[], size: Sizes) => void;
+  selectedPrice: Prices;
+  updateProducts: (
+    option: OptionFilter,
+    colors: string[],
+    size: Sizes,
+    price: Prices
+  ) => void;
   searchProducts: () => void;
   updateOptionFilter: (option: OptionFilter) => void;
   updateSelectedColors: (colors: string[]) => void;
   updateSelectedSize: (size: Sizes) => void;
+  updateSelectedPrice: (price: Prices) => void;
 };
 
 type ProductProviderProps = {
@@ -54,6 +49,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [optionFilter, setOptionFilter] = useState<OptionFilter>("none");
   const [selectedSize, setSelectedSize] = useState<Sizes>("none");
+  const [selectedPrice, setSelectedPrice] = useState<Prices>("none");
   //eu crio a função padrão que será utilizada pelos consumers que internamente atualiza meu estado;
 
   const searchProducts = async () => {
@@ -73,31 +69,40 @@ export function ProductProvider({ children }: ProductProviderProps) {
   const updateProducts = (
     option: OptionFilter,
     colors: string[],
-    size: Sizes
+    size: Sizes,
+    price: Prices
   ) => {
     let colorFilteredProducts: Product[] = [];
     let sizeFilteredProducts: Product[] = [];
+    let priceFilteredProducts: Product[] = [];
 
     if (colors.length > 0) {
       colorFilteredProducts = filterByColors(colors, allProducts);
       sizeFilteredProducts = filterBySize(size, colorFilteredProducts);
-      // console.log(
-      //   colorFilteredProducts,
-      //   "produtos filtrados",
-      //   "filtros: cor ",
-      //   colors,
-      //   "tamanho",
-      //   size
-      // );
-      setProducts(organizeProducts(option, sizeFilteredProducts) as Product[]);
+      priceFilteredProducts = filterByPrice(price, sizeFilteredProducts);
+
+      console.log(
+        colorFilteredProducts,
+        "produtos filtrados",
+        "filtros: cor ",
+        colors,
+        "tamanho",
+        size,
+        "preço",
+        price
+      );
+      setProducts(organizeProducts(option, priceFilteredProducts) as Product[]);
     } else {
       sizeFilteredProducts = filterBySize(size, allProducts);
-      // console.log(
-      //   sizeFilteredProducts,
-      //   "produtos filtrados, filtros: tamanho",
-      //   size
-      // );
-      setProducts(organizeProducts(option, sizeFilteredProducts) as Product[]);
+      priceFilteredProducts = filterByPrice(price, sizeFilteredProducts);
+      console.log(
+        sizeFilteredProducts,
+        "produtos filtrados, filtros: tamanho",
+        size,
+        " preço ",
+        price
+      );
+      setProducts(organizeProducts(option, priceFilteredProducts) as Product[]);
     }
   };
 
@@ -107,11 +112,15 @@ export function ProductProvider({ children }: ProductProviderProps) {
 
   const updateOptionFilter = (option: OptionFilter) => {
     setOptionFilter(option);
-    updateProducts(option, selectedColors, selectedSize);
+    updateProducts(option, selectedColors, selectedSize, selectedPrice);
   };
 
   const updateSelectedSize = (size: Sizes) => {
     setSelectedSize(size);
+  };
+
+  const updateSelectedPrice = (price: Prices) => {
+    setSelectedPrice(price);
   };
 
   useEffect(() => {
@@ -131,11 +140,13 @@ export function ProductProvider({ children }: ProductProviderProps) {
         optionFilter: optionFilter,
         selectedColors: selectedColors,
         selectedSize: selectedSize,
+        selectedPrice: selectedPrice,
         updateSelectedSize: updateSelectedSize,
         searchProducts: searchProducts,
         updateOptionFilter: updateOptionFilter,
         updateProducts: updateProducts,
         updateSelectedColors: updateSelectedColors,
+        updateSelectedPrice: updateSelectedPrice,
       }}
     >
       {children}

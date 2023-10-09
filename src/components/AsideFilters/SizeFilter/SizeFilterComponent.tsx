@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import SizeOption from "./SizeOption";
-import { Sizes, useProducts } from "../../../hooks/useProducts";
-import { filterBySize } from "../../../utils/OptionFilters";
+import { useProducts } from "../../../hooks/useProducts";
+import { Sizes } from "../../../ts/Sizes";
 
 const SizeFilterComponent = () => {
   const {
     updateSelectedSize,
-    products,
+    selectedPrice,
     updateProducts,
     optionFilter,
     selectedColors,
@@ -32,11 +32,11 @@ const SizeFilterComponent = () => {
     if (checked !== id) {
       setChecked(id);
       updateSelectedSize(size);
-      updateProducts(optionFilter, selectedColors, size);
+      updateProducts(optionFilter, selectedColors, size, selectedPrice);
     } else {
       setChecked(-1);
       updateSelectedSize("none");
-      updateProducts(optionFilter, selectedColors, "none");
+      updateProducts(optionFilter, selectedColors, "none", selectedPrice);
     }
   };
 

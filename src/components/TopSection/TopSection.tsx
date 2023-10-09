@@ -1,5 +1,6 @@
 import React from "react";
-import { OptionFilter, useProducts } from "../../hooks/useProducts";
+import { useProducts } from "../../hooks/useProducts";
+import { OptionFilter } from "../../ts/OptionFilter";
 
 const TopSection = () => {
   const { updateOptionFilter } = useProducts();

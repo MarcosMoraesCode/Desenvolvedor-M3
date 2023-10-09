@@ -1,4 +1,5 @@
 import React from "react";
+import { Prices } from "../../../ts/Prices";
 
 interface InputPricesProps {
   legend: string;

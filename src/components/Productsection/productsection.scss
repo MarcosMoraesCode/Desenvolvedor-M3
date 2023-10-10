@@ -69,9 +69,9 @@
   &:hover {
     cursor: pointer;
   }
-  // @include responsive(tablet) {
-  //   margin-left: 0px;
-  // }
+  @include responsive(tablet) {
+    margin-left: 0px;
+  }
   @include responsive(mobile) {
     margin-left: 0px;
   }

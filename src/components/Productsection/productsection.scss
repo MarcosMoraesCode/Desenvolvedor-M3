@@ -73,4 +73,12 @@
   width: 100%;
   margin-left: 40%;
   color: $grey-100;
+  @include responsive(tablet) {
+    text-align: center;
+    margin-left: 0px;
+  }
+  @include responsive(mobile) {
+    text-align: center;
+    margin-left: 0px;
+  }
 }

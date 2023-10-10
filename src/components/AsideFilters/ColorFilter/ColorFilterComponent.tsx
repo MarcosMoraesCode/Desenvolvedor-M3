@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ColorOption from "./ColorOption";
 import { updateColors } from "../../../utils/OptionFilters";
 import { useProducts } from "../../../hooks/useProducts";
+import { colors } from "../../../utils/FiltersArrays";
 
 const ColorFilterComponent = () => {
   const {
@@ -20,19 +21,6 @@ const ColorFilterComponent = () => {
     updateSelectedColors(newColors);
     updateProducts(optionFilter, newColors, selectedSize, selectedPrice);
   };
-
-  const colors = [
-    "Amarelo",
-    "Azul",
-    "Branco",
-    "Cinza",
-    "Laranja",
-    "Verde",
-    "Vermelho",
-    "Preto",
-    "Rosa",
-    "Vinho",
-  ];
 
   let shownOptions;
 

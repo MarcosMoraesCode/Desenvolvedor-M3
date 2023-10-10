@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SizeOption from "./SizeOption";
 import { useProducts } from "../../../hooks/useProducts";
 import { Sizes } from "../../../ts/Sizes";
+import { sizeFilters } from "../../../utils/FiltersArrays";
 
 const SizeFilterComponent = () => {
   const {
@@ -13,20 +14,6 @@ const SizeFilterComponent = () => {
   } = useProducts();
 
   const [checked, setChecked] = useState(-1);
-
-  const sizeFilters = [
-    "P",
-    "M",
-    "G",
-    "GG",
-    "U",
-    "36",
-    "38",
-    "40",
-    "36",
-    "38",
-    "40",
-  ];
 
   const onClickHandler = (id: number, size: Sizes) => {
     if (checked !== id) {

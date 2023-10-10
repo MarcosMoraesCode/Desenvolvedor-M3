@@ -104,9 +104,13 @@
     color: $grey-200;
   }
 
-  button:last-child {
+  .no-border {
     border-left: none;
   }
+
+  // button:last-child {
+  //   border-left: none;
+  // }
 
   .organize-drawer-btn {
     border: none;

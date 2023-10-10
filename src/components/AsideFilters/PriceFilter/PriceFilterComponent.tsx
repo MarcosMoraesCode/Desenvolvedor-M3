@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PriceOption from "./PriceOption";
 import { Prices } from "../../../ts/Prices";
 import { useProducts } from "../../../hooks/useProducts";
+import { priceOptions } from "../../../utils/FiltersArrays";
 
 const PriceFilterComponent = () => {
   const {
@@ -12,26 +13,6 @@ const PriceFilterComponent = () => {
     selectedSize,
   } = useProducts();
   const [checked, setChecked] = useState(-1);
-
-  const priceOptions = [
-    { id: "price50", legend: "de R$0 até R$50", limit: [0, 50] as Prices },
-    { id: "price150", legend: "de R$51 até R$150", limit: [50, 150] as Prices },
-    {
-      id: "price300",
-      legend: "de R$151 até R$300",
-      limit: [150, 300] as Prices,
-    },
-    {
-      id: "price500",
-      legend: "de R$301 até R$500",
-      limit: [300, 500] as Prices,
-    },
-    {
-      id: "price999",
-      legend: "a partir de R$500",
-      limit: [500, 1000000] as Prices,
-    },
-  ];
 
   const onClickHandler = (id: number, price: Prices) => {
     if (checked !== id) {

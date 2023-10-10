@@ -1,18 +1,29 @@
 import React, { useState } from "react";
 import OrganizeDrawer from "./Mobile/OrganizeDrawer";
+import FiltersDrawer from "./Mobile/FiltersDrawer";
 
 const MobileFilters = () => {
   const [openOrganizeDrawer, setOrganizeDrawer] = useState(false);
+  const [openFiltersDrawer, setFiltersDrawer] = useState(false);
 
   function closeOrganizeDrawerHandler() {
-    console.log("clicou pra fechar");
     setOrganizeDrawer(false);
+  }
+
+  function closeFiltersDrawerHandler() {
+    setFiltersDrawer(false);
   }
   return (
     <div className="mobile-filter">
-      <button className="button">Filtrar</button>
       <button
-        className="button"
+        onClick={() => {
+          setFiltersDrawer(true);
+        }}
+      >
+        Filtrar
+      </button>
+      <button
+        className="no-border"
         onClick={() => {
           setOrganizeDrawer(true);
         }}
@@ -22,6 +33,11 @@ const MobileFilters = () => {
       {openOrganizeDrawer ? (
         <OrganizeDrawer closeDrawer={closeOrganizeDrawerHandler} />
       ) : null}
+
+      <FiltersDrawer
+        isOpen={openFiltersDrawer}
+        closeDrawer={closeFiltersDrawerHandler}
+      />
     </div>
   );
 };

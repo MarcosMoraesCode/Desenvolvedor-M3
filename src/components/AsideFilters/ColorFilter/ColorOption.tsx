@@ -1,11 +1,11 @@
 import React from "react";
 
-interface InputColorProps {
+interface ColorOptionProps {
   color: string;
   setColor: () => void;
 }
 
-const ColorInputOption = ({ color, setColor }: InputColorProps) => {
+const ColorOption = ({ color, setColor }: ColorOptionProps) => {
   const colorToLowerCase = color.toLowerCase();
 
   return (
@@ -21,4 +21,4 @@ const ColorInputOption = ({ color, setColor }: InputColorProps) => {
   );
 };
 
-export default ColorInputOption;
+export default ColorOption;

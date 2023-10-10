@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 import { useProducts } from "../../hooks/useProducts";
 import { OptionFilter } from "../../ts/OptionFilter";
+import { organizationOptions } from "../../utils/FiltersArrays";
 
 const CustomDropdown = () => {
   const { updateOptionFilter } = useProducts();
   const [isOpen, setIsOpen] = useState(false);
-
-  const options = [
-    { value: "recent", label: "Mais recentes" },
-    { value: "cheaper", label: "Menor preço" },
-    { value: "expensive", label: "Maior preço" },
-  ];
 
   let customDropdown;
 
   if (isOpen) {
     customDropdown = (
       <ul className="custom-dropdown">
-        {options.map((option, id) => {
+        {organizationOptions.map((option, id) => {
           return (
             <li key={`option-${id}`}>
               <button

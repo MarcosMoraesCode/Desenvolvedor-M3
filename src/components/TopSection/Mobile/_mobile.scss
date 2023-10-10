@@ -1,0 +1,30 @@
+.organize-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+  background-color: $light-color;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  height: 54px;
+  margin-top: 16px;
+  border-bottom: 1px solid $grey-200;
+  padding: 0 16px 0 16px;
+  h2 {
+    line-height: 38px;
+    font-size: 175%;
+    color: $grey-200;
+  }
+  .close-btn {
+    border: none;
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+    margin-top: 10px;
+  }
+}

@@ -17,7 +17,7 @@ const Header = () => {
       {/* <div className="header-container"> */}
       <img src="img/logo-m3.png" alt="Logo M3" className="logo-style" />
       <div className="icon-style">
-        <img src="img/cart-icon.png" alt="Cart Icon" />
+        <img src="img/cart_icon.png" alt="Cart Icon" />
         {cartInformation}
       </div>
       {/* </div> */}

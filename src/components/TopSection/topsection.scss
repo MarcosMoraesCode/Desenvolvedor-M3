@@ -10,6 +10,7 @@
     height: 44px;
     font-size: 200%;
   }
+
   @include responsive(tablet) {
     justify-content: center;
     align-items: center;
@@ -90,6 +91,7 @@
 
 .mobile-filter {
   display: none;
+  position: relative;
   width: 343px;
   height: 49px;
 
@@ -104,6 +106,17 @@
 
   button:last-child {
     border-left: none;
+  }
+
+  .organize-drawer-btn {
+    border: none;
+    margin: 15px 0 15px 0;
+    color: $dark-200;
+    line-height: 30px;
+    font-size: 137.5%;
+    width: 100%;
+    text-align: start;
+    padding-left: 16px;
   }
 
   @include responsive(tablet) {

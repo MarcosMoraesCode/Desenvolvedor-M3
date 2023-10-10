@@ -7,10 +7,6 @@ import MobileFilters from "./MobileFilters";
 const TopSection = () => {
   const { updateOptionFilter } = useProducts();
 
-  const selectHandler = (value: OptionFilter) => {
-    updateOptionFilter(value);
-  };
-
   return (
     <section className="top-section">
       <h1>Blusas</h1>

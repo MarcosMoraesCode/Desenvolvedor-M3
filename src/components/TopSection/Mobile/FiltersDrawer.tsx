@@ -29,9 +29,18 @@ const FiltersDrawer = ({ closeDrawer, isOpen }: FiltersDrawerProps) => {
   //Utilizado para re-renderizar os colors-input e desmarcá-los
   const [resetKey, setResetKey] = useState(0);
 
-  const { optionFilter, updateProducts } = useProducts();
+  const {
+    optionFilter,
+    updateProducts,
+    updateSelectedColors,
+    updateSelectedPrice,
+    updateSelectedSize,
+  } = useProducts();
 
   const onApplyFilters = () => {
+    updateSelectedColors(selectedColors);
+    updateSelectedPrice(selectedPrice);
+    updateSelectedSize(selectedSize);
     updateProducts(optionFilter, selectedColors, selectedSize, selectedPrice);
     closeDrawer();
   };

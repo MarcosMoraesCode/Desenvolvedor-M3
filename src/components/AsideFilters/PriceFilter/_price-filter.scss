@@ -1,9 +1,6 @@
 .price-filter {
   h1 {
-    padding-left: 3px;
-    line-height: 22px;
-    color: $title-color;
-    margin-bottom: 10px;
+    @include filtersTitle(10px);
   }
 }
 .checkbox-prices {

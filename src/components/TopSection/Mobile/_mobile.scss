@@ -1,122 +1,31 @@
-.organize-drawer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-top: 0;
-  background-color: $light-color;
-}
+//MobileFilter
 
-.filters-drawer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-top: 0;
-  overflow-y: auto;
-  max-height: 100vh;
-  background-color: $light-color;
-}
-
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  height: 54px;
-  margin-top: 16px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid $grey-200;
-  padding: 0 16px 0 16px;
-  h2 {
-    line-height: 38px;
-    font-size: 175%;
-    color: $grey-200;
-  }
-  .close-btn {
-    border: none;
-    background-color: transparent;
-    width: 18px;
-    height: 18px;
-    margin-top: 10px;
-  }
-}
-
-.drawer-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding-left: 15px;
-
-  .colors-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    height: 304px;
-  }
-
-  .sizes-container {
-    display: grid;
-    margin-left: 3px;
-    grid-template-columns: 32px 32px 32px 32px;
-    grid-gap: 8px;
-  }
-  .prices-container {
-    height: 120px;
-  }
-
-  .filter-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding-left: 3px;
-    border: none;
-    height: 33px;
-    margin: 15px 0 15px 0;
-    font-size: 150%;
-    text-transform: uppercase;
-    text-align: start;
-
-    //margin-right: 16px;
-
-    span {
-      padding-right: 16px;
-    }
-
-    // img {
-    //   height: 13px;
-    //   width: 18px;
-    // }
-  }
-}
-
-.is-not-open {
+.mobile-filter {
   display: none;
-}
+  position: relative;
+  width: 343px;
+  height: 49px;
 
-.drawer-application {
-  display: flex;
-  justify-content: space-around;
-  margin: 31px 0 17px 0;
-  width: 100%;
-  height: 35px;
-
-  .apply {
-    width: 160px;
-    border: none;
-    background-color: $primary-color;
-    height: 35px;
-    font-size: 87.5%;
-    color: $light-color;
+  .with-border {
+    @include mobileFiltersBtn();
   }
-  .reset {
-    width: 160px;
+
+  .no-border {
+    width: 50%;
+    background-color: $light-color;
     border: 1px solid $grey-200;
-    background-color: none;
-    height: 35px;
-    font-size: 87.5%;
+    text-align: center;
+    font-size: 150%;
     color: $grey-200;
+    border-left: none;
+  }
+
+  @include responsive(tablet) {
+    margin-top: 12px;
+    display: flex;
+  }
+  @include responsive(mobile) {
+    margin-top: 12px;
+    display: flex;
   }
 }

@@ -1,3 +1,4 @@
+//CartList Component
 .cart-drawer {
   position: fixed;
   height: 100vh;
@@ -9,7 +10,6 @@
   background-color: $light-color;
   z-index: 30;
   overflow-y: auto;
-
   @include responsive(mobile) {
     width: 100%;
   }
@@ -61,51 +61,16 @@
 .cart-backdrop {
   position: fixed;
   height: 100vh;
-  position: fixed;
   top: 0;
   left: 0;
   width: calc(100% - 320px);
   padding-top: 0;
   background-color: $dark-100;
   z-index: 20;
-  // @include responsive(tablet) {
-  //   display: none;
-  // }
+
   @include responsive(mobile) {
     display: none;
   }
-}
-
-.cart-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 10px 20px 16px;
-
-  .name {
-    width: 55%;
-  }
-  .price {
-    width: 35%;
-  }
-  .remove-btn {
-    display: flex;
-    width: 10%;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    img {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  // @include responsive(mobile) {
-  //   max-width: 375px;
-  //   // background-color: red;
-  // }
 }
 
 .cart-application {
@@ -137,6 +102,34 @@
     cursor: pointer;
     @include responsive(mobile) {
       width: 160px;
+    }
+  }
+}
+
+// Cart Component
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 10px 20px 16px;
+
+  .name {
+    width: 55%;
+  }
+  .price {
+    width: 35%;
+  }
+  .remove-btn {
+    display: flex;
+    width: 10%;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    img {
+      height: 18px;
+      width: 18px;
     }
   }
 }

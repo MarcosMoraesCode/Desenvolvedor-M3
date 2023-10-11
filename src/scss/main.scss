@@ -1,13 +1,14 @@
 @import "reset";
 @import "./variables";
-@import "../components/Header/header.scss";
-@import "../components/TopSection/topsection.scss";
-@import "../components/AsideFilters/filters.scss";
-@import "../components/ProductCard/product.scss";
-@import "../components/Footer/footer.scss";
-@import "../components/Productsection/productsection.scss";
-@import "../components/TopSection/Mobile/mobile.scss";
-@import "../components/Header//CartList/cart";
+@import "../components/Header/header";
+@import "../components/TopSection/top-section";
+@import "../components/AsideFilters/filters";
+@import "../components/ProductCard/product";
+@import "../components//Footer/footer";
+@import "../components/Productsection/product-section";
+@import "../components/TopSection/Mobile/drawer";
+@import "../components/TopSection/Mobile/mobile";
+@import "../components/Header/CartList/cart";
 @import "./mixins";
 body {
   font-family: $font-family-open-sans;
@@ -32,9 +33,7 @@ body {
 
 .main-section {
   display: flex;
-
   width: 100%;
-
   margin: 50px auto 0px auto;
 }
 

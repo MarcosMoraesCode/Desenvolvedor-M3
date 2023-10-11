@@ -1,8 +1,8 @@
-@import "./ColorFilter/_colorfilter.scss";
-@import "./PriceFilter/_pricefilter.scss";
-@import "./SizeFilter/_sizefilter.scss";
+@import "./ColorFilter/_color-filter";
+@import "./PriceFilter/_price-filter";
+@import "./SizeFilter/_size-filter";
 
-//ASIDE COMPONENT
+//Aside Component
 .aside-filters-component {
   display: flex;
   flex-direction: column;
@@ -18,7 +18,3 @@
     display: none;
   }
 }
-
-//SIZE COMPONENT
-
-//PRICE COMPONENT

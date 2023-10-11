@@ -16,6 +16,7 @@ const MobileFilters = () => {
   return (
     <div className="mobile-filter">
       <button
+        className="with-border"
         onClick={() => {
           setFiltersDrawer(true);
         }}

@@ -1,3 +1,4 @@
+//TopSection Component
 .top-section {
   display: flex;
   justify-content: space-between;
@@ -23,10 +24,9 @@
   }
 }
 
-//CustoDropdown
+//CustomDropdown Component
 
 .dropdown-container {
-  background-color: red;
   margin-top: 53px;
   position: relative;
 
@@ -87,51 +87,47 @@
   }
 }
 
-//MobileFilter
+// //MobileFilter
 
-.mobile-filter {
-  display: none;
-  position: relative;
-  width: 343px;
-  height: 49px;
+// .mobile-filter {
+//   display: none;
+//   position: relative;
+//   width: 343px;
+//   height: 49px;
 
-  button {
-    width: 50%;
-    background-color: $light-color;
-    border: 1px solid $grey-200;
-    text-align: center;
-    font-size: 150%;
-    color: $grey-200;
-  }
+//   button {
+//     width: 50%;
+//     background-color: $light-color;
+//     border: 1px solid $grey-200;
+//     text-align: center;
+//     font-size: 150%;
+//     color: $grey-200;
+//   }
 
-  .no-border {
-    border-left: none;
-  }
+//   .no-border {
+//     border-left: none;
+//   }
 
-  // button:last-child {
-  //   border-left: none;
-  // }
+//   .organize-drawer-btn {
+//     border: none;
+//     margin: 15px 0 15px 0;
+//     color: $dark-200;
+//     line-height: 30px;
+//     font-size: 137.5%;
+//     width: 100%;
+//     text-align: start;
+//     padding-left: 16px;
+//   }
 
-  .organize-drawer-btn {
-    border: none;
-    margin: 15px 0 15px 0;
-    color: $dark-200;
-    line-height: 30px;
-    font-size: 137.5%;
-    width: 100%;
-    text-align: start;
-    padding-left: 16px;
-  }
-
-  @include responsive(tablet) {
-    margin-top: 12px;
-    display: flex;
-  }
-  @include responsive(mobile) {
-    margin-top: 12px;
-    display: flex;
-  }
-}
+//   @include responsive(tablet) {
+//     margin-top: 12px;
+//     display: flex;
+//   }
+//   @include responsive(mobile) {
+//     margin-top: 12px;
+//     display: flex;
+//   }
+// }
 
 .dropdown-backdrop {
   position: fixed;
@@ -143,9 +139,7 @@
   padding-top: 0;
   background-color: transparent;
   z-index: 5;
-  // @include responsive(tablet) {
-  //   display: none;
-  // }
+
   @include responsive(mobile) {
     display: none;
   }

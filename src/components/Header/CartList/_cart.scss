@@ -1,0 +1,142 @@
+.cart-drawer {
+  position: fixed;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  padding-top: 0;
+  background-color: $light-color;
+  z-index: 30;
+  overflow-y: auto;
+
+  @include responsive(mobile) {
+    width: 100%;
+  }
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  height: 48px;
+  margin-top: 16px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid $grey-100;
+  padding: 0 16px 0 16px;
+  h2 {
+    line-height: 38px;
+    font-size: 125%;
+    color: $grey-200;
+  }
+  .close-btn {
+    display: none;
+    border: none;
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    @include responsive(mobile) {
+      display: flex;
+    }
+  }
+
+  @include responsive(mobile) {
+    height: 54px;
+    border-bottom: 1px solid $grey-200;
+    h2 {
+      font-size: 175%;
+    }
+  }
+}
+
+.no-cart-products {
+  margin: 15px 0 0 16px;
+  width: 100%;
+  text-align: center;
+  color: $grey-100;
+}
+
+.cart-backdrop {
+  position: fixed;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 320px);
+  padding-top: 0;
+  background-color: $dark-100;
+  z-index: 20;
+  // @include responsive(tablet) {
+  //   display: none;
+  // }
+  @include responsive(mobile) {
+    display: none;
+  }
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 10px 20px 16px;
+
+  .name {
+    width: 55%;
+  }
+  .price {
+    width: 35%;
+  }
+  .remove-btn {
+    display: flex;
+    width: 10%;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    img {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  // @include responsive(mobile) {
+  //   max-width: 375px;
+  //   // background-color: red;
+  // }
+}
+
+.cart-application {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0 17px 0;
+  width: 100%;
+  height: 35px;
+
+  .apply {
+    width: 130px;
+    border: none;
+    background-color: $primary-color;
+    height: 35px;
+    font-size: 87.5%;
+    color: $light-color;
+    cursor: pointer;
+    @include responsive(mobile) {
+      width: 160px;
+    }
+  }
+  .reset {
+    width: 130px;
+    border: 1px solid $grey-200;
+    background-color: transparent;
+    height: 35px;
+    font-size: 87.5%;
+    color: $grey-200;
+    cursor: pointer;
+    @include responsive(mobile) {
+      width: 160px;
+    }
+  }
+}

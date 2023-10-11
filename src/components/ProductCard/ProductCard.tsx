@@ -12,7 +12,7 @@ const ProductCard = ({
   price,
   size,
 }: Product) => {
-  const { updateCartProducts, cartProducts } = useProducts();
+  const { addCartProduct, cartProducts } = useProducts();
 
   const productName = name.toUpperCase();
 
@@ -47,7 +47,7 @@ const ProductCard = ({
       size,
     };
 
-    updateCartProducts(newProduct);
+    addCartProduct(newProduct);
   };
 
   return (

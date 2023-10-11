@@ -37,7 +37,8 @@ type ProductContextProps = {
   updateSelectedColors: (colors: string[]) => void;
   updateSelectedSize: (size: Sizes) => void;
   updateSelectedPrice: (price: Prices) => void;
-  updateCartProducts: (product: Product) => void;
+  addCartProduct: (product: Product) => void;
+  updateCartProducts: (products: Product[]) => void;
 };
 
 type ProductProviderProps = {
@@ -126,12 +127,16 @@ export function ProductProvider({ children }: ProductProviderProps) {
     setSelectedPrice(price);
   };
 
-  const updateCartProducts = (product: Product) => {
+  const addCartProduct = (product: Product) => {
     const newProducts = [...cartProducts];
 
     newProducts.push(product);
 
     setCartProducts(newProducts);
+  };
+
+  const updateCartProducts = (products: Product[]) => {
+    setCartProducts(products);
   };
 
   useEffect(() => {
@@ -160,6 +165,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
         updateSelectedColors: updateSelectedColors,
         updateSelectedPrice: updateSelectedPrice,
         updateCartProducts: updateCartProducts,
+        addCartProduct: addCartProduct,
       }}
     >
       {children}

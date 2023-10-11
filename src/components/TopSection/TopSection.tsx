@@ -1,12 +1,8 @@
 import React from "react";
-import { useProducts } from "../../hooks/useProducts";
-import { OptionFilter } from "../../ts/OptionFilter";
 import CustomDropdown from "./CustomDropdown";
-import MobileFilters from "./MobileFilters";
+import MobileFilters from "./Mobile/MobileFilters";
 
 const TopSection = () => {
-  const { updateOptionFilter } = useProducts();
-
   return (
     <section className="top-section">
       <h1>Blusas</h1>

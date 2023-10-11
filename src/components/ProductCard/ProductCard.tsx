@@ -1,6 +1,7 @@
 import React from "react";
 import { Product } from "../../ts/Product";
 import { useProducts } from "../../hooks/useProducts";
+import { convertToBRL } from "../../utils/SimpleFunctions";
 
 const ProductCard = ({
   color,
@@ -12,19 +13,13 @@ const ProductCard = ({
   price,
   size,
 }: Product) => {
-  const { addCartProduct, cartProducts } = useProducts();
+  const { addCartProduct } = useProducts();
 
   const productName = name.toUpperCase();
 
-  const productPrice = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(price);
+  const productPrice = convertToBRL(price);
 
-  const productInstallments = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(parcelamento[1]);
+  const productInstallments = convertToBRL(parcelamento[1]);
 
   const onClickHandler = ({
     color,

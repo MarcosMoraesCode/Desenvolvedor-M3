@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ColorOption from "./ColorOption";
-import { updateColors } from "../../../utils/OptionFilters";
+import { updateColorsArr } from "../../../utils/OptionFilters";
 import { useProducts } from "../../../hooks/useProducts";
 import { colors } from "../../../utils/FiltersArrays";
 
@@ -17,7 +17,7 @@ const ColorFilterComponent = () => {
   const [showAllOptions, setShowAllOptions] = useState(false);
 
   const onSelectionHandler = (color: string) => {
-    const newColors = updateColors(color, selectedColors);
+    const newColors = updateColorsArr(color, selectedColors);
     updateSelectedColors(newColors);
     updateProducts(optionFilter, newColors, selectedSize, selectedPrice);
   };

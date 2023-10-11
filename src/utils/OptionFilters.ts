@@ -3,6 +3,7 @@ import { Prices } from "../ts/Prices";
 import { Product } from "../ts/Product";
 import { Sizes } from "../ts/Sizes";
 
+//Converte a data do formato String para o tempo em dias
 export const convertStringDateToNumber = (stringDate: string): number => {
   const date = new Date(stringDate);
 
@@ -17,24 +18,25 @@ export const convertStringDateToNumber = (stringDate: string): number => {
   return todayDateInDays - productDateInDays;
 };
 
+// Ordena os produtos de acordo com a opção selecionada
 export const organizeProducts = (option: OptionFilter, products: Product[]) => {
   let organizedProducts;
 
   switch (option) {
     case "cheaper":
       organizedProducts = products.sort((a, b) => a.price - b.price);
-      // console.log("organizados por mais barato", organizedProducts);
+
       break;
     case "expensive":
       organizedProducts = products.sort((a, b) => b.price - a.price);
-      // console.log("organizados por mais caro", organizedProducts);
+
       break;
     case "recent":
       organizedProducts = products.sort(
         (a, b) =>
           convertStringDateToNumber(a.date) - convertStringDateToNumber(b.date)
       );
-      // console.log("organizados por mais recente", organizedProducts);
+
       break;
     case "none":
       organizedProducts = products;
@@ -45,6 +47,7 @@ export const organizeProducts = (option: OptionFilter, products: Product[]) => {
   return organizedProducts;
 };
 
+// Filtra produtos pelas cores selecionadas
 export const filterByColors = (
   colors: string[],
   products: Product[]
@@ -62,7 +65,8 @@ export const filterByColors = (
   return filteredProducts;
 };
 
-export const updateColors = (color: string, colors: string[]) => {
+// Gerencia array de cores selecionadas pelo usuário
+export const updateColorsArr = (color: string, colors: string[]) => {
   let newColors: string[] = [];
   let colorExists = false;
 
@@ -82,6 +86,7 @@ export const updateColors = (color: string, colors: string[]) => {
   }
 };
 
+// Filtra produtos pelo tamanho selecionado
 export const filterBySize = (size: Sizes, products: Product[]) => {
   if (size === "none") {
     return products;
@@ -96,6 +101,7 @@ export const filterBySize = (size: Sizes, products: Product[]) => {
   }
 };
 
+// Filtra produtos pela faixa de preço selecionada
 export const filterByPrice = (price: Prices, products: Product[]) => {
   if (price === "none") {
     return products;

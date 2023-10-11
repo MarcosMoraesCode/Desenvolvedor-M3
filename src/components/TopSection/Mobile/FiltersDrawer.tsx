@@ -10,7 +10,7 @@ import { Sizes } from "../../../ts/Sizes";
 import PriceOption from "../../AsideFilters/PriceFilter/PriceOption";
 import { useProducts } from "../../../hooks/useProducts";
 import { Prices } from "../../../ts/Prices";
-import { updateColors } from "../../../utils/OptionFilters";
+import { updateColorsArr } from "../../../utils/OptionFilters";
 
 type FiltersDrawerProps = {
   closeDrawer: () => void;
@@ -56,7 +56,7 @@ const FiltersDrawer = ({ closeDrawer, isOpen }: FiltersDrawerProps) => {
   };
 
   const applyColorsHandler = (color: string) => {
-    const newColors = updateColors(color, selectedColors);
+    const newColors = updateColorsArr(color, selectedColors);
     setSelectedColors(newColors);
   };
 
@@ -88,6 +88,8 @@ const FiltersDrawer = ({ closeDrawer, isOpen }: FiltersDrawerProps) => {
           <img src="../../../img/close_btn.png" alt="close button" />
         </button>
       </header>
+
+      {/* SESSÃO: FILTRO DE CORES */}
       <section className="drawer-section">
         <button
           className="filter-btn"
@@ -110,6 +112,8 @@ const FiltersDrawer = ({ closeDrawer, isOpen }: FiltersDrawerProps) => {
           })}
         </div>
       </section>
+
+      {/* SESSÃO: FILTRO DE TAMANHO*/}
       <section className="drawer-section">
         <button
           className="filter-btn"
@@ -133,6 +137,8 @@ const FiltersDrawer = ({ closeDrawer, isOpen }: FiltersDrawerProps) => {
           })}
         </div>
       </section>
+
+      {/* SESSÃO: FILTRO DE FAIXA DE PREÇO */}
       <section className="drawer-section">
         <button
           className="filter-btn"
@@ -158,6 +164,8 @@ const FiltersDrawer = ({ closeDrawer, isOpen }: FiltersDrawerProps) => {
           })}
         </div>
       </section>
+
+      {/* BOTÕES */}
       {openColorsOptions || openPriceOptions || openSizeOptions ? (
         <div className="drawer-application">
           <button className="apply" onClick={() => onApplyFilters()}>

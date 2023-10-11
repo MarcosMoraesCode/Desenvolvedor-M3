@@ -1,5 +1,6 @@
 import React from "react";
 import { Prices } from "../../../ts/Prices";
+import { getScreenSize } from "../../../utils/SizeChecker";
 
 interface InputPricesProps {
   legend: string;
@@ -16,17 +17,19 @@ const PriceOption = ({
   setChecked,
   value,
 }: InputPricesProps) => {
+  const size = getScreenSize()?.toLocaleLowerCase();
+
   return (
     <div className="price-input-options">
       <input
         type="checkbox"
-        id={id}
+        id={`price-${id}-${size}`}
         name="range"
         onChange={setChecked}
         checked={isChecked}
         value={value}
       />
-      <label htmlFor={id}>{legend}</label>
+      <label htmlFor={`price-${id}-${size}`}>{legend}</label>
     </div>
   );
 };

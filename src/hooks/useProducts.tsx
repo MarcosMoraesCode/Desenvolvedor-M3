@@ -46,7 +46,6 @@ type ProductProviderProps = {
 };
 
 export function ProductProvider({ children }: ProductProviderProps) {
-  //eu crio o estado tipado com o tipo do dado que será consumido
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
@@ -54,7 +53,6 @@ export function ProductProvider({ children }: ProductProviderProps) {
   const [optionFilter, setOptionFilter] = useState<OptionFilter>("none");
   const [selectedSize, setSelectedSize] = useState<Sizes>("none");
   const [selectedPrice, setSelectedPrice] = useState<Prices>("none");
-  //eu crio a função padrão que será utilizada pelos consumers que internamente atualiza meu estado;
 
   const searchProducts = async () => {
     await fetch("http://localhost:5000/products")
@@ -84,28 +82,10 @@ export function ProductProvider({ children }: ProductProviderProps) {
       colorFilteredProducts = filterByColors(colors, allProducts);
       sizeFilteredProducts = filterBySize(size, colorFilteredProducts);
       priceFilteredProducts = filterByPrice(price, sizeFilteredProducts);
-
-      // console.log(
-      //   colorFilteredProducts,
-      //   "produtos filtrados",
-      //   "filtros: cor ",
-      //   colors,
-      //   "tamanho",
-      //   size,
-      //   "preço",
-      //   price
-      // );
       setProducts(organizeProducts(option, priceFilteredProducts) as Product[]);
     } else {
       sizeFilteredProducts = filterBySize(size, allProducts);
       priceFilteredProducts = filterByPrice(price, sizeFilteredProducts);
-      // console.log(
-      //   sizeFilteredProducts,
-      //   "produtos filtrados, filtros: tamanho",
-      //   size,
-      //   " preço ",
-      //   price
-      // );
       setProducts(organizeProducts(option, priceFilteredProducts) as Product[]);
     }
   };
@@ -129,9 +109,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
 
   const addCartProduct = (product: Product) => {
     const newProducts = [...cartProducts];
-
     newProducts.push(product);
-
     setCartProducts(newProducts);
   };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import OrganizeDrawer from "./Mobile/OrganizeDrawer";
-import FiltersDrawer from "./Mobile/FiltersDrawer";
+import OrganizeDrawer from "./OrganizeDrawer";
+import FiltersDrawer from "./FiltersDrawer";
 
 const MobileFilters = () => {
   const [openOrganizeDrawer, setOrganizeDrawer] = useState(false);

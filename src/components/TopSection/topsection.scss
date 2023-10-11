@@ -132,3 +132,24 @@
     display: flex;
   }
 }
+
+.dropdown-backdrop {
+  position: fixed;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 0;
+  background-color: transparent;
+  z-index: 5;
+  // @include responsive(tablet) {
+  //   display: none;
+  // }
+  @include responsive(mobile) {
+    display: none;
+  }
+  @include responsive(tablet) {
+    display: none;
+  }
+}

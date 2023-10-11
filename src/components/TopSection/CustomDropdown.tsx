@@ -11,24 +11,26 @@ const CustomDropdown = () => {
 
   if (isOpen) {
     customDropdown = (
-      <ul className="custom-dropdown">
-        {organizationOptions.map((option, id) => {
-          return (
-            <li key={`option-${id}`}>
-              <button
-                className="organize-options-btn"
-                type="button"
-                onClick={() => {
-                  setIsOpen(false);
-                  updateOptionFilter(option.value as OptionFilter);
-                }}
-              >
-                {option.label}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      <>
+        <ul className="custom-dropdown">
+          {organizationOptions.map((option, id) => {
+            return (
+              <li key={`option-${id}`}>
+                <button
+                  className="organize-options-btn"
+                  type="button"
+                  onClick={() => {
+                    setIsOpen(false);
+                    updateOptionFilter(option.value as OptionFilter);
+                  }}
+                >
+                  {option.label}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </>
     );
   }
 
@@ -46,6 +48,9 @@ const CustomDropdown = () => {
       </button>
 
       {customDropdown}
+      {isOpen ? (
+        <div className="dropdown-backdrop" onClick={() => setIsOpen(false)} />
+      ) : null}
     </div>
   );
 };

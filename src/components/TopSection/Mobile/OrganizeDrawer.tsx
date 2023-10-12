@@ -1,6 +1,6 @@
 import React from "react";
 import { organizationOptions } from "../../../utils/FiltersArrays";
-import { OptionFilter } from "../../../ts/OptionFilter";
+import { OptionFilter } from "../../../ts/Typing";
 import { useProducts } from "../../../hooks/useProducts";
 
 type OrganizeDrawerProps = {

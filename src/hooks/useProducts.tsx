@@ -5,16 +5,13 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import { Product } from "../ts/Product";
 import {
   filterByColors,
   filterByPrice,
   filterBySize,
   organizeProducts,
 } from "../utils/OptionFilters";
-import { Sizes } from "../ts/Sizes";
-import { OptionFilter } from "../ts/OptionFilter";
-import { Prices } from "../ts/Prices";
+import { Sizes, Prices, OptionFilter, Product } from "../ts/Typing";
 
 const ProductContext = createContext({} as ProductContextProps);
 

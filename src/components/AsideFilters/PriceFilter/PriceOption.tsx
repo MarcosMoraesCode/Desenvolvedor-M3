@@ -1,5 +1,5 @@
 import React from "react";
-import { Prices } from "../../../ts/Prices";
+import { Prices } from "../../../ts/Typing";
 import { getScreenSize } from "../../../utils/SizeChecker";
 
 interface InputPricesProps {

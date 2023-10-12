@@ -6,10 +6,10 @@ import {
 } from "../../../utils/FiltersArrays";
 import ColorOption from "../../AsideFilters/ColorFilter/ColorOption";
 import SizeOption from "../../AsideFilters/SizeFilter/SizeOption";
-import { Sizes } from "../../../ts/Sizes";
+import { Sizes, Prices } from "../../../ts/Typing";
 import PriceOption from "../../AsideFilters/PriceFilter/PriceOption";
 import { useProducts } from "../../../hooks/useProducts";
-import { Prices } from "../../../ts/Prices";
+
 import { updateColorsArr } from "../../../utils/OptionFilters";
 
 type FiltersDrawerProps = {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SizeOption from "./SizeOption";
 import { useProducts } from "../../../hooks/useProducts";
-import { Sizes } from "../../../ts/Sizes";
+import { Sizes } from "../../../ts/Typing";
 import { sizeFilters } from "../../../utils/FiltersArrays";
 
 const SizeFilterComponent = () => {

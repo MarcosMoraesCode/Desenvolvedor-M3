@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PriceOption from "./PriceOption";
-import { Prices } from "../../../ts/Prices";
+import { Prices } from "../../../ts/Typing";
 import { useProducts } from "../../../hooks/useProducts";
 import { priceOptions } from "../../../utils/FiltersArrays";
 

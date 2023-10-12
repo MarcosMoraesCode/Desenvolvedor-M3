@@ -1,4 +1,4 @@
-import { Prices } from "../ts/Prices";
+import { Prices } from "../ts/Typing";
 
 // Opções de organização dos produtos
 export const organizationOptions = [

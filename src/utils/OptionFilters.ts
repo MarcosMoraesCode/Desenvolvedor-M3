@@ -1,7 +1,4 @@
-import { OptionFilter } from "../ts/OptionFilter";
-import { Prices } from "../ts/Prices";
-import { Product } from "../ts/Product";
-import { Sizes } from "../ts/Sizes";
+import { Sizes, Prices, OptionFilter, Product } from "../ts/Typing";
 
 //Converte a data do formato String para o tempo em dias
 export const convertStringDateToNumber = (stringDate: string): number => {

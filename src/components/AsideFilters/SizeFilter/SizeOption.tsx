@@ -1,5 +1,5 @@
 import React from "react";
-import { Sizes } from "../../../ts/Sizes";
+import { Sizes } from "../../../ts/Typing";
 
 interface SizeOptionProps {
   size: Sizes;

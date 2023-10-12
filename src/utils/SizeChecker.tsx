@@ -1,6 +1,6 @@
 import React from "react";
 import ProductCard from "../components/ProductCard/ProductCard";
-import { Product } from "../ts/Product";
+import { Product } from "../ts/Typing";
 
 // Informa a resolução do dispositivo do usuário
 export function getScreenSize() {

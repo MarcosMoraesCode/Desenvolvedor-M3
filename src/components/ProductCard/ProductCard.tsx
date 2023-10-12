@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "../../ts/Product";
+import { Product } from "../../ts/Typing";
 import { useProducts } from "../../hooks/useProducts";
 import { convertToBRL } from "../../utils/SimpleFunctions";
 

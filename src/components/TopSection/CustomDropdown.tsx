@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useProducts } from "../../hooks/useProducts";
-import { OptionFilter } from "../../ts/OptionFilter";
+import { OptionFilter } from "../../ts/Typing";
 import { organizationOptions } from "../../utils/FiltersArrays";
 
 const CustomDropdown = () => {

@@ -12,6 +12,7 @@ import {
   organizeProducts,
 } from "../utils/OptionFilters";
 import { Sizes, Prices, OptionFilter, Product } from "../ts/Typing";
+import { serverUrl } from "../ts";
 
 const ProductContext = createContext({} as ProductContextProps);
 
@@ -52,7 +53,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
   const [selectedPrice, setSelectedPrice] = useState<Prices>("none");
 
   const searchProducts = async () => {
-    await fetch("http://localhost:5000/products")
+    await fetch(serverUrl + "/products")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Erro na solicitação: " + res.status);
@@ -71,20 +72,21 @@ export function ProductProvider({ children }: ProductProviderProps) {
     size: Sizes,
     price: Prices
   ) => {
-    let colorFilteredProducts: Product[] = [];
-    let sizeFilteredProducts: Product[] = [];
-    let priceFilteredProducts: Product[] = [];
+    let filtered: Product[] = allProducts;
 
     if (colors.length > 0) {
-      colorFilteredProducts = filterByColors(colors, allProducts);
-      sizeFilteredProducts = filterBySize(size, colorFilteredProducts);
-      priceFilteredProducts = filterByPrice(price, sizeFilteredProducts);
-      setProducts(organizeProducts(option, priceFilteredProducts) as Product[]);
-    } else {
-      sizeFilteredProducts = filterBySize(size, allProducts);
-      priceFilteredProducts = filterByPrice(price, sizeFilteredProducts);
-      setProducts(organizeProducts(option, priceFilteredProducts) as Product[]);
+      filtered = filterByColors(colors, filtered);
     }
+
+    if (size !== "none") {
+      filtered = filterBySize(size, filtered);
+    }
+
+    if (price !== "none") {
+      filtered = filterByPrice(price, filtered);
+    }
+
+    setProducts(organizeProducts(option, filtered));
   };
 
   const updateSelectedColors = (colors: string[]) => {

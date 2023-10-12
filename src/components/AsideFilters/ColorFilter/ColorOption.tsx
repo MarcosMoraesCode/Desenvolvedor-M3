@@ -1,5 +1,4 @@
 import React from "react";
-import { getScreenSize } from "../../../utils/SizeChecker";
 
 interface ColorOptionProps {
   color: string;
@@ -9,17 +8,15 @@ interface ColorOptionProps {
 const ColorOption = ({ color, setColor }: ColorOptionProps) => {
   const colorToLowerCase = color.toLowerCase();
 
-  const size = getScreenSize()?.toLocaleLowerCase();
-
   return (
     <li className="color-input-options">
       <input
         type={"checkbox"}
-        id={`${size}-${colorToLowerCase}`}
+        id={colorToLowerCase}
         name={colorToLowerCase}
         onChange={setColor}
       />
-      <label htmlFor={`${size}-${colorToLowerCase}`}>{color}</label>
+      <label htmlFor={colorToLowerCase}>{color}</label>
     </li>
   );
 };

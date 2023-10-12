@@ -1,67 +1,48 @@
 import React, { useState } from "react";
 import { useProducts } from "../../hooks/useProducts";
-import {
-  getScreenSize,
-  getTernaryOptionByScreenSize,
-  organizeProductsByScreenSize,
-} from "../../utils/SizeChecker";
+import ProductCard from "../ProductCard/ProductCard";
 
 const ProductSection = () => {
   const { products } = useProducts();
   //Define a quantidade de produtos mostrados inicialmente a depender do tamanho da tela
-  const [productsShownDesktop, setProductShownDesktop] = useState(9);
-  const [productsShownMobile, setProductShownMobile] = useState(4);
-  const [productsShownTablet, setProductShownTablet] = useState(6);
-  const [productsShownWideScreen, setProductShownWideScreen] = useState(12);
+  const [productsShown, setProductShown] = useState(9);
 
-  const screenSize = getScreenSize();
   let productsMessage = "Nenhum produto foi encontrado.";
 
   const loadMoreProducts = () => {
-    switch (screenSize) {
-      case "ultrawide-screen":
-        setProductShownWideScreen(productsShownWideScreen + 4);
-        break;
-      case "desktop-screen":
-        setProductShownDesktop(productsShownDesktop + 3);
-        break;
-      case "tablet-screen":
-        setProductShownTablet(productsShownTablet + 3);
-        break;
-      case "mobile-screen":
-        setProductShownMobile(productsShownMobile + 4);
-      default:
-        break;
-    }
+    //O valor +3 é apenas para poder carregar mais de uma vez
+    setProductShown(productsShown + 3);
   };
-
-  const checkingScreenSize = getTernaryOptionByScreenSize(
-    products,
-    productsShownWideScreen,
-    productsShownDesktop,
-    productsShownTablet,
-    productsShownMobile
-  );
 
   let fetchedProducts;
 
   if (products.length > 0) {
     productsMessage = "Todos os produtos foram exibidos.";
 
-    fetchedProducts = organizeProductsByScreenSize(
-      products,
-      productsShownWideScreen,
-      productsShownDesktop,
-      productsShownTablet,
-      productsShownMobile
-    );
+    fetchedProducts = products
+      .map((product, id) => {
+        return (
+          <ProductCard
+            key={`product-${id}`}
+            name={product.name}
+            color={product.color}
+            date={product.date}
+            id={product.id}
+            image={product.image}
+            parcelamento={product.parcelamento}
+            price={product.price}
+            size={product.size}
+          />
+        );
+      })
+      .filter((_, id) => id < productsShown);
   }
 
   return (
     <section className="products-section">
       <div className="products-container">{fetchedProducts}</div>
       <div className="load-btn-wrapper">
-        {checkingScreenSize ? (
+        {productsShown >= products.length ? (
           <span className="span-limit">{productsMessage}</span>
         ) : (
           <button

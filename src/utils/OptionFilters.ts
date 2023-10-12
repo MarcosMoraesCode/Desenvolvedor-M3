@@ -16,8 +16,11 @@ export const convertStringDateToNumber = (stringDate: string): number => {
 };
 
 // Ordena os produtos de acordo com a opção selecionada
-export const organizeProducts = (option: OptionFilter, products: Product[]) => {
-  let organizedProducts;
+export const organizeProducts = (
+  option: OptionFilter,
+  products: Product[]
+): Product[] => {
+  let organizedProducts: Product[] = [];
 
   switch (option) {
     case "cheaper":
@@ -105,11 +108,10 @@ export const filterByPrice = (price: Prices, products: Product[]) => {
   } else {
     const filteredProducts = products.filter((product) => {
       if (product.price > price[0] && product.price <= price[1]) {
-        console.log(product.price, typeof product.price, price, typeof price);
         return product;
       }
     });
-    console.log("filtrado na função de preço", filteredProducts);
+
     return filteredProducts;
   }
 };
